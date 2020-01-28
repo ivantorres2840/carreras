@@ -12,14 +12,6 @@ public class Coche {
 	private double kmrealizados;
 	private boolean bot;
 
-	public Coche(String nombrepiloto, int dorsal) {
-		this.nombrepiloto = nombrepiloto;
-		this.dorsal = dorsal;
-		this.estado = "parado";
-		this.potencia = 50;
-		this.velocidad = 0;
-		this.kmrealizados = 0;
-	}
 
 	public Coche(String nombrepiloto, int dorsal, boolean bot) {
 		this.nombrepiloto = nombrepiloto;
@@ -33,6 +25,10 @@ public class Coche {
 
 	public String getNombrepiloto() {
 		return nombrepiloto;
+	}
+
+	public void setBot(boolean bot) {
+		this.bot = bot;
 	}
 
 	public boolean isBot() {

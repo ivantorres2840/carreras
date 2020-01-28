@@ -5,10 +5,11 @@ public class Principal {
 	public static void main(String[] args) {
 		Menu menu= new Menu();
 		Carrera c = new Carrera();
+		int opc;
 		
-		int opc=0;
-		opc=menu.pintaMenuPrincipal();
 		
+		do {
+			opc=menu.pintaMenuPrincipal();
 		switch(opc) {
 			case 1:
 				c.añadirCoche();
@@ -24,7 +25,7 @@ public class Principal {
 				break;
 				
 		}
-		
+		}while(opc>1 || opc<4);
 	}
 
 }

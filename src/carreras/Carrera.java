@@ -11,6 +11,7 @@ public class Carrera {
 	
 	
 	public Carrera() {
+		
 	}
 
 
@@ -18,7 +19,9 @@ public class Carrera {
 		this.nombre = nombre;
 		this.distanciaCarrera = distanciaCarrera;
 		this.vParticipantes = new Coche[5];
-	}
+}
+	
+	
 	
 	
 	private boolean comprobarDorsal(int dorsal) {
@@ -36,31 +39,31 @@ public class Carrera {
 	
 	public void añadirCoche(){
 		Scanner leer=new Scanner(System.in);
+		Scanner leernum=new Scanner(System.in);
 		 String nombrepiloto="";
 		 int dorsal=0;
 		 boolean bot=false;
 		 int opc=0;
+		 
 		 do {
 		 System.out.println("Introduce nombre piloto");
 		 nombrepiloto=leer.nextLine();
 		 System.out.println("Introduce su dorsal");
-		 dorsal=leer.nextInt();
+		 dorsal=leernum.nextInt();
 		 
 		 System.out.println("Es Humano(1) Es Robot(2)");
-		 
+		 opc=leernum.nextInt();
 		 if(opc==1) {
 			 bot=true;
-		 }
-		 if(opc==2) {
-			 bot=false;
-		 }
-		 
-		 for (int i = 0; i < vParticipantes.length; i++) {
-			if(vParticipantes[i]==null) {
-				Coche coches = new Coche(nombrepiloto,dorsal,bot);
-				vParticipantes[i]=coches;
+		 }else if(opc==2) {
+				bot=false;
 			}
-			break;
+		 
+		 for (int i = 0; i < vParticipantes.length ; i++) {
+			if(vParticipantes[i]==null) {
+				vParticipantes[i]=new Coche(nombrepiloto,dorsal,bot);
+				break;
+			}
 		}
 		 
 		 }while(!comprobarDorsal(dorsal)); 
@@ -106,11 +109,13 @@ public class Carrera {
 	
 	public void configurarCarrera() {
 		Scanner leer= new Scanner(System.in);
+		Scanner leernum=new Scanner(System.in);
 		String nombrecarrera="";
-		System.out.println("Introduce el nombre de la carrera");
 		double distanciacarrera=0;
+		System.out.println("Introduce el nombre de la carrera");
+		nombrecarrera=leer.nextLine();
 		System.out.println("Introduce la distancia en KM de la carrera");
-		
+		distanciacarrera=leernum.nextDouble();
 		
 		Carrera c = new Carrera(nombrecarrera,distanciacarrera);
 		
