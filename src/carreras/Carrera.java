@@ -1,11 +1,12 @@
 package carreras;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Carrera {
 
 	private String nombre;
-	private double distanciaCarrera;
+	private int distanciaCarrera;
 	private Coche [] vParticipantes;
 	
 	
@@ -15,7 +16,7 @@ public class Carrera {
 	}
 
 
-	public Carrera(String nombre, double distanciaCarrera) {
+	public Carrera(String nombre, int distanciaCarrera) {
 		this.nombre = nombre;
 		this.distanciaCarrera = distanciaCarrera;
 		this.vParticipantes = new Coche[5];
@@ -61,7 +62,8 @@ public class Carrera {
 		 
 		 for (int i = 0; i < vParticipantes.length ; i++) {
 			if(vParticipantes[i]==null) {
-				vParticipantes[i]=new Coche(nombrepiloto,dorsal,bot);
+				Coche coche = new Coche(nombrepiloto,dorsal,distanciaCarrera,bot);
+				vParticipantes[i]=coche;
 				break;
 			}
 		}
@@ -111,11 +113,11 @@ public class Carrera {
 		Scanner leer= new Scanner(System.in);
 		Scanner leernum=new Scanner(System.in);
 		String nombrecarrera="";
-		double distanciacarrera=0;
+		int distanciacarrera=0;
 		System.out.println("Introduce el nombre de la carrera");
 		nombrecarrera=leer.nextLine();
 		System.out.println("Introduce la distancia en KM de la carrera");
-		distanciacarrera=leernum.nextDouble();
+		distanciacarrera=leernum.nextInt();
 		
 		Carrera c = new Carrera(nombrecarrera,distanciacarrera);
 		
@@ -123,6 +125,8 @@ public class Carrera {
 	}
 	
 	
+	
+
 	public void jugar() {
 		
 		arrancarTodosCoches();
@@ -190,12 +194,12 @@ public class Carrera {
 	}
 
 
-	public double getDistanciaCarrera() {
+	public int getDistanciaCarrera() {
 		return distanciaCarrera;
 	}
 
 
-	public void setDistanciaCarrera(double distanciaCarrera) {
+	public void setDistanciaCarrera(int distanciaCarrera) {
 		this.distanciaCarrera = distanciaCarrera;
 	}
 
@@ -209,7 +213,12 @@ public class Carrera {
 		this.vParticipantes = vParticipantes;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Carrera [nombre=" + nombre + ", distanciaCarrera=" + distanciaCarrera + ", vParticipantes="
+				+ Arrays.toString(vParticipantes) + "]";
+	}
+
 	
 	
 }

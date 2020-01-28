@@ -10,6 +10,7 @@ public class Coche {
 	private int potencia;
 	private int velocidad;
 	private double kmrealizados;
+	private int distanciaCarrera;
 	private boolean bot;
 
 
@@ -22,6 +23,30 @@ public class Coche {
 		this.kmrealizados = 0;
 		this.bot = bot;
 	}
+	
+
+	public Coche(String nombrepiloto, int dorsal,int distanciaCarrera, boolean bot) {
+		this.nombrepiloto = nombrepiloto;
+		this.dorsal = dorsal;
+		this.estado = "parado";
+		this.potencia = 50;
+		this.velocidad = 0;
+		this.kmrealizados = 0;
+		this.distanciaCarrera = distanciaCarrera;
+		this.bot = bot;
+	}
+
+
+
+	public int getDistanciaCarrera() {
+		return distanciaCarrera;
+	}
+
+
+	public void setDistanciaCarrera(int distanciaCarrera) {
+		this.distanciaCarrera = distanciaCarrera;
+	}
+
 
 	public String getNombrepiloto() {
 		return nombrepiloto;
@@ -86,6 +111,7 @@ public class Coche {
 	}
 
 	public void Arrcancar() {
+		if(this.estado.equalsIgnoreCase("parado"))
 		this.estado = "marcha";
 		//System.out.println("El coche esta en marcha");
 	}
@@ -101,8 +127,10 @@ public class Coche {
 
 		if (this.velocidad > 200) {
 			this.estado = "accidentado";
+			this.velocidad=0;
 		}
-
+		
+		this.kmrealizados=this.getVelocidad();
 	}
 
 	public void Frenar() {
@@ -116,6 +144,7 @@ public class Coche {
 		if (this.velocidad < 0) {
 			this.velocidad = 0;
 		}
+		this.kmrealizados=this.getVelocidad();
 	}
 
 	public void Rearrancar() {
