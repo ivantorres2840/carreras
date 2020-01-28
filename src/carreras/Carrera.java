@@ -19,7 +19,7 @@ public class Carrera {
 	private boolean comprobarDorsal(int dorsal) {
 			
 			for (int i = 0; i < vParticipantes.length; i++) {
-				if (vParticipantes[i].getDorsal()==dorsal) {
+				if (vParticipantes[i]!=null && vParticipantes[i].getDorsal()==dorsal) {
 					return true;
 				}
 			}
@@ -65,7 +65,7 @@ public class Carrera {
 	
 	public void Ganador() {
 		for (int i = 0; i < vParticipantes.length; i++) {
-			if(vParticipantes[i].getKmrealizados()==distanciaCarrera && vParticipantes[i]!=null) {
+			if(vParticipantes[i]!=null && vParticipantes[i].getKmrealizados()==distanciaCarrera ) {
 				vParticipantes[i].setEstado("terminado");
 			}
 		}
@@ -75,7 +75,7 @@ public class Carrera {
 	
 	public boolean partidaTerminada() {
 		for (int i = 0; i < vParticipantes.length; i++) {
-			if(vParticipantes[i].getEstado().equalsIgnoreCase("marcha") && vParticipantes[i]!=null) {
+			if(vParticipantes[i]!=null && vParticipantes[i].getEstado().equalsIgnoreCase("marcha") ) {
 				return true;
 			}
 		}
@@ -113,11 +113,28 @@ public class Carrera {
 						Menu menu = new Menu();
 						int opcion;
 						opcion=menu.pintaMenuPrincipal();
+						switch(opcion) {
+						case 1:
+							añadirCoche();
+							break;
+						case 2:
+							jugar();
+							break;
+						case 3:
+							System.out.println("Adios");
+							break;
+						}
+						
 						
 					}else {
 						//Maquina
 						
-						
+						if(coche.getEstado().equalsIgnoreCase("accidentado")) {
+							coche.Arrcancar();
+						}else {
+							int opcion2;
+							opcion2=menu.
+						}
 						
 					}
 					
