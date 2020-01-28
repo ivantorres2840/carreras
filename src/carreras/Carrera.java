@@ -75,7 +75,7 @@ public class Carrera {
 	
 	public boolean partidaTerminada() {
 		for (int i = 0; i < vParticipantes.length; i++) {
-			if(vParticipantes[i]!=null && vParticipantes[i].getEstado().equalsIgnoreCase("marcha") ) {
+			if((vParticipantes[i]!=null) && !(vParticipantes[i].getEstado().equalsIgnoreCase("marcha")) ) {
 				return true;
 			}
 		}
@@ -112,16 +112,16 @@ public class Carrera {
 						//Humano
 						Menu menu = new Menu();
 						int opcion;
-						opcion=menu.pintaMenuPrincipal();
+						opcion=menu.pintaMenuCarrera();
 						switch(opcion) {
 						case 1:
-							añadirCoche();
+							coche.Acelerar();
 							break;
 						case 2:
-							jugar();
+							coche.Frenar();
 							break;
 						case 3:
-							System.out.println("Adios");
+							coche.Rearrancar();
 							break;
 						}
 						
@@ -132,8 +132,18 @@ public class Carrera {
 						if(coche.getEstado().equalsIgnoreCase("accidentado")) {
 							coche.Arrcancar();
 						}else {
-							int opcion2;
-							opcion2=menu.
+							int opc;
+							opc= (int) Math.random()*2+1;
+							switch(opc) {
+							case 1:
+								coche.Acelerar();
+								break;
+							case 2:
+								coche.Frenar();
+								break;
+							}
+							
+							
 						}
 						
 					}
