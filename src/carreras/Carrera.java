@@ -9,6 +9,11 @@ public class Carrera {
 	private Coche [] vParticipantes;
 	
 	
+	
+	public Carrera() {
+	}
+
+
 	public Carrera(String nombre, double distanciaCarrera) {
 		this.nombre = nombre;
 		this.distanciaCarrera = distanciaCarrera;
@@ -99,6 +104,20 @@ public class Carrera {
 	}
 	
 	
+	public void configurarCarrera() {
+		Scanner leer= new Scanner(System.in);
+		String nombrecarrera="";
+		System.out.println("Introduce el nombre de la carrera");
+		double distanciacarrera=0;
+		System.out.println("Introduce la distancia en KM de la carrera");
+		
+		
+		Carrera c = new Carrera(nombrecarrera,distanciacarrera);
+		
+		
+	}
+	
+	
 	public void jugar() {
 		
 		arrancarTodosCoches();
@@ -153,6 +172,36 @@ public class Carrera {
 			}
 			
 		}while(!partidaTerminada());
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public double getDistanciaCarrera() {
+		return distanciaCarrera;
+	}
+
+
+	public void setDistanciaCarrera(double distanciaCarrera) {
+		this.distanciaCarrera = distanciaCarrera;
+	}
+
+
+	public Coche[] getvParticipantes() {
+		return vParticipantes;
+	}
+
+
+	public void setvParticipantes(Coche[] vParticipantes) {
+		this.vParticipantes = vParticipantes;
 	}
 	
 	

@@ -10,10 +10,11 @@ public class Menu {
 		do {
 		System.out.println("**********Juego de Carreras**************");
 		System.out.println("1. Añadir Jugador");
-		System.out.println("2. Empezar el Juego");
-		System.out.println("3. Salir");
+		System.out.println("2. Configurar la carrera");
+		System.out.println("3. Empezar el Juego");
+		System.out.println("4. Salir");
 		opc=leer.nextInt();
-		}while(opc<1 || opc>3);
+		}while(opc<1 || opc>4);
 		return opc;
 	}
 	
